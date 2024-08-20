@@ -81,7 +81,7 @@ class PoolWorker(Process):
                 connector=TCPConnector(
                     limit_per_host=max(100, self.concurrency), use_dns_cache=True
                 ),
-                timeout=ClientTimeout(total=90),
+                timeout=ClientTimeout(total=120),
                 base_url=self.session_base_url if self.session_base_url else None,
             ) as client_session:
                 pending: Dict[asyncio.Future, TaskID] = {}
